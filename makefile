@@ -40,9 +40,8 @@ endif
 	@nyc $(mocha)
 
 install:
-	@echo "[INFO] Installing Dependences"
-	@yarn install
-	@yarn install --only=dev
+	@echo "[INFO] Installing Dependencies"
+	@yarn install --production=false
 
 clean:
 ifeq ($(OS), Windows_NT)
