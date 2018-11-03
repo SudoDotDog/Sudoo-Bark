@@ -12,6 +12,13 @@ describe('Given a [similarity] function', (): void => {
 
     const chance: Chance.Chance = new Chance('string-template-similarity');
 
+    it('should be able to handle empty string', () => {
+        const baseString: string = chance.string();
+        const result: number = similar('', baseString);
+
+        expect(result).to.be.equal(Infinity);
+    });
+
     it('should get 0 with same strings', () => {
         const baseString: string = chance.string();
         const result: number = similar(baseString, baseString);
