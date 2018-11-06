@@ -1,6 +1,6 @@
 /**
  * @author WMXPY
- * @namespace Test_String
+ * @namespace String
  * @description Template Test
  */
 
