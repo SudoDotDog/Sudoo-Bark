@@ -35,7 +35,7 @@ export class StringModifier {
     public contain(weight: number = 3): StringModifier {
 
         if (this._target.includes(this._base)) {
-            this._distance += weight;
+            this._distance -= weight;
         }
         return this;
     }
