@@ -34,4 +34,13 @@ describe('Given a [similarity] function', (): void => {
 
         expect(result).to.be.gte(1);
     });
+
+    it('should get more than 1 with different strings', () => {
+        const baseString: string = chance.string();
+        const targetString: string = chance.string();
+
+        const result: number = similar(baseString, targetString);
+
+        expect(result).to.be.gte(1);
+    });
 });
