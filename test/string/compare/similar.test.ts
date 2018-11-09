@@ -1,37 +1,45 @@
 /**
  * @author WMXPY
- * @namespace String
- * @description Template Test
+ * @namespace String_Compare
+ * @description Similar Test
  */
 
 import { expect } from 'chai';
 import * as Chance from 'chance';
-import { similar } from '../../../src/string/compare/similar';
+import { compare } from '../../../src/string/compare/compare';
 
-describe('Given a [similarity] function', (): void => {
+describe('Given a [compare] function', (): void => {
 
-    const chance: Chance.Chance = new Chance('string-template-similarity');
+    const chance: Chance.Chance = new Chance('string-compare-compare');
 
-    it('should be able to handle empty string', () => {
+    it('should return 0 when comparing same string', () => {
+
         const baseString: string = chance.string();
-        const result: number = similar('', baseString);
 
-        expect(result).to.be.equal(Infinity);
-    });
-
-    it('should get 0 with same strings', () => {
-        const baseString: string = chance.string();
-        const result: number = similar(baseString, baseString);
+        const result: number = compare(baseString).with(baseString).distance;
 
         expect(result).to.be.equal(0);
     });
 
-    it('should get more than 1 with different strings', () => {
+    it('should return length difference with doubled length string', () => {
+
         const baseString: string = chance.string();
-        const targetString: string = chance.string();
+        const targetString: string = baseString + baseString;
 
-        const result: number = similar(baseString, targetString);
+        const result: number = compare(baseString).with(targetString).distance;
 
-        expect(result).to.be.gte(1);
+        expect(result).to.be.equal(baseString.length);
+    });
+
+    it('should return length plus weight difference with doubled length string and modifier', () => {
+
+        const baseString: string = chance.string();
+        const targetString: string = baseString + baseString;
+        const weight: number = chance.natural({ max: 10 });
+        const expectDifference: number = weight / baseString.length;
+
+        const result: number = compare(baseString).with(targetString).length(weight).distance;
+
+        expect(result).to.be.equal(baseString.length + expectDifference);
     });
 });
