@@ -1,10 +1,10 @@
 /**
  * @author WMXPY
  * @namespace String
- * @description Compare
+ * @description Similar
  */
 
-import { clr } from "../array/common";
+import { clr } from "../../array/common";
 
 export const similar = (baseStr: string, targetStr: string): number => {
 

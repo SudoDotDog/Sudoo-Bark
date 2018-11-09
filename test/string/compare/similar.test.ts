@@ -6,7 +6,7 @@
 
 import { expect } from 'chai';
 import * as Chance from 'chance';
-import { similar } from '../../src/string/compare';
+import { similar } from '../../../src/string/compare/similar';
 
 describe('Given a [similarity] function', (): void => {
 
@@ -24,15 +24,6 @@ describe('Given a [similarity] function', (): void => {
         const result: number = similar(baseString, baseString);
 
         expect(result).to.be.equal(0);
-    });
-
-    it('should get more than 1 with different strings', () => {
-        const baseString: string = chance.string();
-        const targetString: string = chance.string();
-
-        const result: number = similar(baseString, targetString);
-
-        expect(result).to.be.gte(1);
     });
 
     it('should get more than 1 with different strings', () => {
