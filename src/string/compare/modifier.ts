@@ -39,4 +39,14 @@ export class StringModifier {
         }
         return this;
     }
+
+    public unsensitiveContain(weight: number = 3): StringModifier {
+
+        const base = this._base.toLowerCase().replace(' ', '');
+        const target = this._target.toLowerCase().replace(' ', '');
+        if (target.includes(base)) {
+            this._distance -= weight;
+        }
+        return this;
+    }
 }
