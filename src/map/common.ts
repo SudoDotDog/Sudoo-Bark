@@ -4,7 +4,17 @@
  * @description Common
  */
 
-export const keys = <T>(map: {
+export const keys = <T = any>(map: {
+    [key: string]: T;
+}): string[] => {
+
+    const list: string[] = [];
+
+    for (const key in map) list.push(key);
+    return list;
+};
+
+export const elements = <T = any>(map: {
     [key: string]: T;
 }): T[] => {
 
