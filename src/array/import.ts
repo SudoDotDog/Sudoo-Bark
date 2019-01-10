@@ -4,5 +4,5 @@
  * @description Import
  */
 
-export { car, cdr, clr } from './common';
+export { car, cdr, clr, sample } from './common';
 

@@ -49,5 +49,5 @@ else
 endif
 
 
-publish: install tests build
+publish: install tests clean build
 	@npm publish --access=public
