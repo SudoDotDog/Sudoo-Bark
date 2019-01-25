@@ -19,7 +19,7 @@ export const lash = <K extends RecordKeyType, T = any>
     }
 
     const newObject: Record<K, T> = keyList.reduce(
-        (previous: Record<K, T>, current: K) => {
+        (previous: Record<K, T>, current: K): Record<K, T> => {
             if (key === current) {
 
                 if (newKey && key !== newKey) {
@@ -46,7 +46,7 @@ export const lash_mutate = <K extends RecordKeyType, T = any>
 
     const result: Record<K, T> = {} as Record<K, T>;
 
-    keyList.forEach((current: K) => {
+    keyList.forEach((current: K): void => {
         if (key === current) {
 
             if (newKey && key !== newKey) {
@@ -54,8 +54,10 @@ export const lash_mutate = <K extends RecordKeyType, T = any>
             } else {
                 mutate(result, current, value);
             }
+            return;
         }
         mutate(result, current, object[current]);
+        return;
     });
     return result;
 };
