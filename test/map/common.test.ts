@@ -16,9 +16,7 @@ describe('Given [common] map related functions', (): void => {
 
         it('should able to return empty list', () => {
 
-            const map: {
-                [key: string]: string;
-            } = {};
+            const map: Record<string, string> = {};
 
             const result: string[] = keys(map);
 
@@ -30,9 +28,7 @@ describe('Given [common] map related functions', (): void => {
             const key: string = chance.string();
             const element: string = chance.string();
 
-            const map: {
-                [key: string]: string;
-            } = {
+            const map: Record<string, string> = {
                 [key]: element,
             };
 
@@ -46,9 +42,7 @@ describe('Given [common] map related functions', (): void => {
 
         it('should able to return empty list', () => {
 
-            const map: {
-                [key: string]: string;
-            } = {};
+            const map: Record<string, string> = {};
 
             const result: string[] = elements(map);
 
@@ -60,9 +54,7 @@ describe('Given [common] map related functions', (): void => {
             const key: string = chance.string();
             const element: string = chance.string();
 
-            const map: {
-                [key: string]: string;
-            } = {
+            const map: Record<string, string> = {
                 [key]: element,
             };
 

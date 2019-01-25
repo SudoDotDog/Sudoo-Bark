@@ -4,19 +4,17 @@
  * @description Common
  */
 
-export const keys = <T = any>(map: {
-    [key: string]: T;
-}): string[] => {
+import { RecordKeyType } from "./declare";
 
-    const list: string[] = [];
+export const keys = <K extends RecordKeyType, T = any>(map: Record<K, T>): K[] => {
+
+    const list: K[] = [];
 
     for (const key in map) list.push(key);
     return list;
 };
 
-export const elements = <T = any>(map: {
-    [key: string]: T;
-}): T[] => {
+export const elements = <K extends RecordKeyType, T = any>(map: Record<K, T>): T[] => {
 
     const list: T[] = [];
 

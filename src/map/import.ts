@@ -5,4 +5,5 @@
  */
 
 export { elements, keys } from './common';
+export { lash } from "./replace";
 
