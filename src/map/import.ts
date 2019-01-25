@@ -5,5 +5,5 @@
  */
 
 export { elements, keys } from './common';
-export { lash } from "./replace";
+export { lash, lash_mutate } from "./replace";
 
