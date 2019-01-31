@@ -4,6 +4,7 @@ dev := typescript/tsconfig.dev.json
 
 # NPX functions
 tsc := node_modules/.bin/tsc
+ts_node := node_modules/.bin/ts-node
 mocha := node_modules/.bin/mocha
 
 .IGNORE: clean-linux
@@ -34,6 +35,10 @@ install:
 install-prod:
 	@echo "[INFO] Installing Dependencies"
 	@yarn install --production=true
+
+clean: clean-linux
+	@echo "[INFO] Cleaning release files"
+	@NODE_ENV=development $(ts_node) script/clean-app.ts
 
 clean-linux:
 	@echo "[INFO] Cleaning dist files"
