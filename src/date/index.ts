@@ -4,5 +4,14 @@
  * @description Index
  */
 
-export { stringifyDateLocal, stringifyDateUTC } from './stringify';
+import { stringifyDateLocal, stringifyDateUTC } from './stringify';
 
+const exportee = {
+    stringifyDateLocal,
+    stringifyDateUTC,
+};
+
+export { exportee as _Date };
+export { stringifyDateLocal, stringifyDateUTC };
+
+export default exportee;
