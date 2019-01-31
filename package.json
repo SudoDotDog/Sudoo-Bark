@@ -19,7 +19,7 @@
   "dependencies": {},
   "devDependencies": {
     "@sudoo/triforce": "^1.2.0",
-    "@types/node": "^10.12.18"
+    "@types/node": "^10.12.20"
   },
   "nyc": {
     "extension": [
