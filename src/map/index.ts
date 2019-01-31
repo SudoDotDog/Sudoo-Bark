@@ -1,7 +1,7 @@
 /**
  * @author WMXPY
  * @namespace Map
- * @description Import
+ * @description Index
  */
 
 export { elements, keys } from './common';

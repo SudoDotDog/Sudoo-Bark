@@ -1,7 +1,7 @@
 /**
  * @author WMXPY
  * @namespace Table
- * @description Import
+ * @description Index
  */
 
 export { generate } from './csv';

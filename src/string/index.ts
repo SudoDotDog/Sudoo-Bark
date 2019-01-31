@@ -1,7 +1,7 @@
 /**
  * @author WMXPY
  * @namespace String
- * @description Import
+ * @description Index
  */
 
 export { compare } from './compare/compare';

@@ -1,7 +1,7 @@
 /**
  * @author WMXPY
  * @namespace Array
- * @description Import
+ * @description Index
  */
 
 export { car, cdr, clr, sample } from './common';

@@ -1,7 +1,7 @@
 /**
  * @author WMXPY
  * @namespace Date
- * @description Import
+ * @description Index
  */
 
 export { stringifyDateLocal, stringifyDateUTC } from './stringify';
