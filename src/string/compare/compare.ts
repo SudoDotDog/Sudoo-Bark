@@ -7,7 +7,7 @@
 import { StringModifier } from "./modifier";
 import { similar } from "./similar";
 
-class StringCompare {
+export class StringCompare {
 
     private readonly _base: string;
 

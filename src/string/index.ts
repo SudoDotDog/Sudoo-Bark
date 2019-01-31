@@ -4,7 +4,7 @@
  * @description Index
  */
 
-import { compare } from './compare/compare';
+import { compare, StringCompare } from './compare/compare';
 import { similar } from './compare/similar';
 import { spaces } from './template';
 
@@ -15,7 +15,7 @@ const exportee = {
 };
 
 export { exportee as _String };
-export { compare };
+export { compare, StringCompare };
 export { similar };
 export { spaces };
 
