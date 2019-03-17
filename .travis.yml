@@ -7,8 +7,7 @@ node_js:
  - '10'
 
 install:
- - yarn install
- - yarn install --only=dev
+ - make install
  - npm install codecov nyc -g
 
 before_script:
