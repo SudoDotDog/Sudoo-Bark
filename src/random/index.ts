@@ -4,13 +4,13 @@
  * @description Index
  */
 
-import { unique } from "./string";
+import { DefaultUniqueLength, MaxUniqueLength, unique } from "./string";
 
 const exportee = {
     unique,
 };
 
 export { exportee as _Random };
-export { unique };
+export { unique, MaxUniqueLength, DefaultUniqueLength };
 
 export default exportee;
