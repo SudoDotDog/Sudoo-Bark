@@ -6,7 +6,6 @@
 
 import { expect } from 'chai';
 import * as Chance from 'chance';
-import { stringifyDateLocal } from '../../src/date/stringify';
 import { generate } from '../../src/table/csv';
 
 describe('Given [generate] function', (): void => {
