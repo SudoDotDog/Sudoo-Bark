@@ -10,13 +10,13 @@ import { rmRFFolderSync } from './util';
 
 const appPath: string = Path.join(__dirname, '..', 'app');
 
+if (!Fs.existsSync(appPath)) {
+    Fs.mkdirSync(appPath);
+}
+
 const files: string[] = Fs.readdirSync(appPath);
 for (const file of files) {
 
-    if (file === 'LICENSE' || file === 'package.json') {
-
-        continue;
-    }
-
     rmRFFolderSync(Path.join(appPath, file));
 }
+
