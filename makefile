@@ -50,4 +50,4 @@ clean-linux:
 
 publish: install tests license build
 	@echo "[INFO] Publishing package"
-	# @cd app && npm publish --access=public
+	@cd app && npm publish --access=public

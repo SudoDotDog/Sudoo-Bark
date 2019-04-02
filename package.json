@@ -1,7 +1,7 @@
 {
   "name": "@sudoo/bark",
   "version": "2.1.0",
-  "description": "sudoo bark",
+  "description": ":cyclone: Don't bark same wheel again and again",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SudoDotDog/Sudoo-Bark.git"
