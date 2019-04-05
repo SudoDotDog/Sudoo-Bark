@@ -6,8 +6,7 @@
 
 import { expect } from 'chai';
 import * as Chance from 'chance';
-import { unique } from '../../src/random';
-import { MaxUniqueLength } from '../../src/random/string';
+import { MaxUniqueLength, random, unique } from '../../src/random/string';
 
 describe('Given [random-string] helper functions', (): void => {
 
@@ -15,14 +14,14 @@ describe('Given [random-string] helper functions', (): void => {
 
     it('should be able to generate default random string', () => {
 
-        const value: string = unique();
+        const value: string = random();
 
         expect(value).to.have.lengthOf(6);
     });
 
     it('should be able to generate random string with length', () => {
 
-        const value: string = unique(10);
+        const value: string = random(10);
 
         expect(value).to.have.lengthOf(10);
     });
@@ -30,7 +29,30 @@ describe('Given [random-string] helper functions', (): void => {
     it('should be able to generate random string with any length', () => {
 
         const length: number = chance.natural();
-        const value: string = unique(length);
+        const value: string = random(length);
+
+        expect(value).to.have.lengthOf(MaxUniqueLength);
+    });
+
+    it('should be able to generate default unique string', () => {
+
+        const value: string = unique();
+
+        expect(value).to.have.lengthOf(6);
+    });
+
+    it('should be able to generate current unique string', () => {
+
+        const current: Date = new Date();
+        const value: string = unique(current);
+
+        expect(value).to.be.equal(unique(current));
+    });
+
+    it('should be able to unique random string with any length', () => {
+
+        const length: number = chance.natural();
+        const value: string = unique(new Date(), length);
 
         expect(value).to.have.lengthOf(MaxUniqueLength);
     });
