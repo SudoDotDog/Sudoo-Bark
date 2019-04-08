@@ -4,7 +4,7 @@
  * @description Unique
  */
 
-export const DefaultUniqueLength: number = 6;
+export const DefaultUniqueLength: number = 8;
 export const MaxUniqueLength: number = 255;
 
 export const random = (length: number = DefaultUniqueLength, prefix?: string): string => {

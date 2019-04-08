@@ -6,7 +6,7 @@
 
 import { expect } from 'chai';
 import * as Chance from 'chance';
-import { MaxUniqueLength, random, unique } from '../../src/random/string';
+import { DefaultUniqueLength, MaxUniqueLength, random, unique } from '../../src/random/string';
 
 describe('Given [random-string] helper functions', (): void => {
 
@@ -16,7 +16,7 @@ describe('Given [random-string] helper functions', (): void => {
 
         const value: string = random();
 
-        expect(value).to.have.lengthOf(6);
+        expect(value).to.have.lengthOf(DefaultUniqueLength);
     });
 
     it('should be able to generate random string with length', () => {
@@ -38,7 +38,7 @@ describe('Given [random-string] helper functions', (): void => {
 
         const value: string = unique();
 
-        expect(value).to.have.lengthOf(6);
+        expect(value).to.have.lengthOf(DefaultUniqueLength);
     });
 
     it('should be able to generate current unique string', () => {
