@@ -21,7 +21,7 @@ export class SetTimeoutBuffer {
         this._time = time;
     }
 
-    public start(setFunction: (handler: () => any, time?: number) => any = setTimeout): this {
+    public start(setFunction: (callback: (...args: any[]) => void, ms: number) => any = setTimeout): this {
 
         this.token = setFunction(this._func, this._time);
         return this;
