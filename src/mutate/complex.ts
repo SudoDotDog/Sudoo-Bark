@@ -4,6 +4,20 @@
  * @description Complex
  */
 
+export const asyncRebuild = async <T = any, R = any>(arr: T[], func: (current: T, index: number, arr: T[]) => Promise<R | undefined>): Promise<R[]> => {
+
+    const length: number = arr.length;
+    const response: R[] = [];
+
+    for (let i = 0; i < length; i++) {
+        const result: R | undefined = await func(arr[i], i, arr);
+        if (result) {
+            response.push(result);
+        }
+    }
+    return response;
+};
+
 export const asyncMax = async <T = any>(arr: T[], func: (current: T, index: number, arr: T[]) => Promise<number>): Promise<T> => {
 
     if (arr.length === 0) {

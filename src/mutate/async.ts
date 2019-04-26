@@ -37,20 +37,6 @@ export const asyncReduce = async <T = any, R = any>(arr: T[], func: (previous: R
     return current;
 };
 
-export const asyncRebuild = async <T = any, R = any>(arr: T[], func: (current: T, index: number, arr: T[]) => Promise<R | undefined>): Promise<R[]> => {
-
-    const length: number = arr.length;
-    const response: R[] = [];
-
-    for (let i = 0; i < length; i++) {
-        const result: R | undefined = await func(arr[i], i, arr);
-        if (result) {
-            response.push(result);
-        }
-    }
-    return response;
-};
-
 export const asyncFilter = async <T = any>(arr: T[], func: (current: T, index: number, arr: T[]) => Promise<boolean>): Promise<T[]> => {
 
     const length: number = arr.length;

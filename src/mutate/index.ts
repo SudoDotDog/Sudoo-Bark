@@ -4,8 +4,8 @@
  * @description Index
  */
 
-import { asyncFilter, asyncForEach, asyncMap, asyncRebuild, asyncReduce } from './async';
-import { asyncMax, asyncMin } from './complex';
+import { asyncFilter, asyncForEach, asyncMap, asyncReduce } from './async';
+import { asyncMax, asyncMin, asyncRebuild } from './complex';
 
 const exportee = {
     asyncFilter,
@@ -18,7 +18,7 @@ const exportee = {
 };
 
 export { exportee as _Mutate };
-export { asyncFilter, asyncForEach, asyncMap, asyncRebuild, asyncReduce };
-export { asyncMax, asyncMin };
+export { asyncFilter, asyncForEach, asyncMap, asyncReduce };
+export { asyncMax, asyncMin, asyncRebuild };
 
 export default exportee;
