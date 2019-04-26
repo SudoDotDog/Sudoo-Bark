@@ -1,6 +1,6 @@
 /**
  * @author WMXPY
- * @namespace Array
+ * @namespace Mutate
  * @description Async
  */
 
