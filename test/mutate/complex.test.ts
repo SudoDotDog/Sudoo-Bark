@@ -7,13 +7,53 @@
 
 import { expect } from 'chai';
 import * as Chance from 'chance';
-import { asyncMax, asyncMin } from '../../src/mutate/complex';
+import { asyncMax, asyncMin, asyncRebuild } from '../../src/mutate/complex';
 
 describe('Given [Mutate-Complex] helper functions', (): void => {
 
     const chance: Chance.Chance = new Chance('mutate-complex');
 
     const getSmallRandomNumber = () => chance.natural({ min: 0, max: 100 });
+
+    describe('Given a [AsyncRebuild] function', () => {
+
+        it('should be able to return rebuilt', async (): Promise<void> => {
+
+            const num1: number = getSmallRandomNumber();
+            const num2: number = getSmallRandomNumber();
+            const num3: number = getSmallRandomNumber();
+            const from: number[] = [num1, num2, num3];
+
+            const func = async (value: number, index: number, arr: number[]): Promise<number | undefined> => {
+                if (index % 2 === 0) {
+                    return value + arr.length;
+                }
+                return;
+            };
+
+            expect(await asyncRebuild(from, func)).to.be.deep.equal([num1 + 3, num3 + 3]);
+        });
+
+        it('should be able to return timeout rebuilt', async (): Promise<void> => {
+
+            const num1: number = getSmallRandomNumber();
+            const num2: number = getSmallRandomNumber();
+            const num3: number = getSmallRandomNumber();
+            const from: number[] = [num1, num2, num3];
+
+            const func = (value: number, index: number, arr: number[]): Promise<number | undefined> =>
+                new Promise<number | undefined>((resolve: (value?: number) => void) => {
+                    setTimeout(() => {
+                        if (index % 2 === 0) {
+                            resolve(value + arr.length);
+                        }
+                        resolve();
+                    }, 1);
+                });
+
+            expect(await asyncRebuild(from, func)).to.be.deep.equal([num1 + 3, num3 + 3]);
+        });
+    });
 
     describe('Given a [AsyncMax] function', () => {
 
