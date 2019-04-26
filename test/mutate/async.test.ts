@@ -7,13 +7,27 @@
 
 import { expect } from 'chai';
 import * as Chance from 'chance';
-import { asyncMap, asyncRebuild, asyncReduce } from '../../src/mutate/async';
+import { asyncFilter, asyncMap, asyncRebuild, asyncReduce } from '../../src/mutate/async';
 
-describe('Given [Async] helper functions', (): void => {
+describe('Given [Mutate-Async] helper functions', (): void => {
 
     const chance: Chance.Chance = new Chance('mutate-async');
 
     const getSmallRandomNumber = () => chance.natural({ min: 0, max: 100 });
+
+    describe('Given a [AsyncFilter] function', () => {
+
+        it('should be able to return filtered', async (): Promise<void> => {
+
+            const from: number[] = [0, 1, 2];
+
+            const func = async (value: number, index: number, arr: number[]): Promise<boolean> => {
+                return value % 2 === 0;
+            };
+
+            expect(await asyncFilter(from, func)).to.be.deep.equal([0, 2]);
+        });
+    });
 
     describe('Given a [AsyncMap] function', () => {
 
