@@ -5,10 +5,11 @@
  */
 
 import { asyncFilter, asyncForEach, asyncMap, asyncReduce } from './async';
-import { asyncMax, asyncMin, asyncRebuild } from './complex';
+import { asyncFlatRebuild, asyncMax, asyncMin, asyncRebuild } from './complex';
 
 const exportee = {
     asyncFilter,
+    asyncFlatRebuild,
     asyncForEach,
     asyncMap,
     asyncMax,
@@ -19,6 +20,6 @@ const exportee = {
 
 export { exportee as _Mutate };
 export { asyncFilter, asyncForEach, asyncMap, asyncReduce };
-export { asyncMax, asyncMin, asyncRebuild };
+export { asyncFlatRebuild, asyncMax, asyncMin, asyncRebuild };
 
 export default exportee;

@@ -7,7 +7,7 @@
 
 import { expect } from 'chai';
 import * as Chance from 'chance';
-import { asyncMax, asyncMin, asyncRebuild } from '../../src/mutate/complex';
+import { asyncFlatRebuild, asyncMax, asyncMin, asyncRebuild } from '../../src/mutate/complex';
 
 describe('Given [Mutate-Complex] helper functions', (): void => {
 
@@ -52,6 +52,43 @@ describe('Given [Mutate-Complex] helper functions', (): void => {
                 });
 
             expect(await asyncRebuild(from, func)).to.be.deep.equal([num1 + 3, num3 + 3]);
+        });
+    });
+
+    describe('Given a [AsyncFlatRebuild] function', () => {
+
+        it('should be able to return rebuilt without flatten', async (): Promise<void> => {
+
+            const num1: number = getSmallRandomNumber();
+            const num2: number = getSmallRandomNumber();
+            const num3: number = getSmallRandomNumber();
+            const from: number[] = [num1, num2, num3];
+
+            const func = async (value: number, index: number, arr: number[]): Promise<number | undefined> => {
+                if (index % 2 === 0) {
+                    return value + arr.length;
+                }
+                return;
+            };
+
+            expect(await asyncRebuild(from, func)).to.be.deep.equal([num1 + 3, num3 + 3]);
+        });
+
+        it('should be able to return rebuilt flatten', async (): Promise<void> => {
+
+            const num1: number = getSmallRandomNumber();
+            const num2: number = getSmallRandomNumber();
+            const num3: number = getSmallRandomNumber();
+            const from: number[] = [num1, num2, num3];
+
+            const func = async (value: number, index: number, arr: number[]): Promise<number | number[] | undefined> => {
+                if (index % 2 === 0) {
+                    return value + arr.length;
+                }
+                return [value, value];
+            };
+
+            expect(await asyncFlatRebuild(from, func)).to.be.deep.equal([num1 + 3, num2, num2, num3 + 3]);
         });
     });
 
