@@ -6,7 +6,7 @@
 
 import { fixDigitWithZero } from '../string/template';
 
-export const stringifyDateLocal = (date: Date, format: string) => {
+export const stringifyDateLocal = (date: Date, format: string): string => {
 
     const result: string = format
         .replace(/yyyy/g, date.getFullYear().toString())
@@ -26,7 +26,7 @@ export const stringifyDateLocal = (date: Date, format: string) => {
     return result;
 };
 
-export const stringifyDateUTC = (date: Date, format: string) => {
+export const stringifyDateUTC = (date: Date, format: string): string => {
 
     return format
         .replace(/yyyy/g, date.getUTCFullYear().toString())
