@@ -1,7 +1,7 @@
 /**
  * @author WMXPY
- * @namespace Unique
- * @description Unique
+ * @namespace Random
+ * @description String
  */
 
 export const DefaultUniqueLength: number = 8;

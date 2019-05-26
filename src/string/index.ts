@@ -6,10 +6,12 @@
 
 import { compare, StringCompare } from './compare/compare';
 import { similar } from './compare/similar';
-import { spaces } from './template';
+import { padLeft, padLeftZero, spaces } from './template';
 
 const exportee = {
     compare,
+    padLeft,
+    padLeftZero,
     similar,
     spaces,
 };
@@ -17,6 +19,6 @@ const exportee = {
 export { exportee as _String };
 export { compare, StringCompare };
 export { similar };
-export { spaces };
+export { padLeft, padLeftZero, spaces };
 
 export default exportee;
