@@ -22,7 +22,7 @@ export const stringifyDateLocal = (date: Date, format: string): string => {
     if (result.match(/area/)) {
 
         const area: number = date.getTimezoneOffset();
-        return result.replace(/area/g, `UTC${area >= 0 ? `+${area}` : area}`);
+        return result.replace(/area/g, `UTC${area >= 0 ? `+${area}` : `-${area}`}`);
     }
 
     return result;
