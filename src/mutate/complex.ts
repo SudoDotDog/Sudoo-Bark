@@ -18,6 +18,36 @@ export const asyncRebuild = async <T = any, R = any>(arr: T[], func: (current: T
     return response;
 };
 
+export const asyncPick = async <T = any>(arr: T[], func: (current: T, index: number, arr: T[]) => Promise<boolean>): Promise<T[]> => {
+
+    const length: number = arr.length;
+    const response: T[] = [];
+
+    for (let i = 0; i < length; i++) {
+
+        const result: boolean = await func(arr[i], i, arr);
+        if (result) {
+            response.push(arr[i]);
+        }
+    }
+    return response;
+};
+
+export const asyncPickWithout = async <T = any>(arr: T[], func: (current: T, index: number, arr: T[]) => Promise<boolean>): Promise<T[]> => {
+
+    const length: number = arr.length;
+    const response: T[] = [];
+
+    for (let i = 0; i < length; i++) {
+
+        const result: boolean = await func(arr[i], i, arr);
+        if (!result) {
+            response.push(arr[i]);
+        }
+    }
+    return response;
+};
+
 export const asyncFlatRebuild = async <T = any, R = any>(arr: T[], func: (current: T, index: number, arr: T[]) => Promise<R[] | R | undefined>): Promise<R[]> => {
 
     const length: number = arr.length;

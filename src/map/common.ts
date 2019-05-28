@@ -22,6 +22,18 @@ export const elements = <K extends RecordKeyType, T = any>(map: Record<K, T>): T
     return list;
 };
 
+export const entries = <K extends RecordKeyType, T = any>(map: Record<K, T>): Array<[K, T]> => {
+
+    const list: Array<[K, T]> = [];
+
+    for (const key in map) {
+        if (map[key]) {
+            list.push([key, map[key]]);
+        }
+    }
+    return list;
+};
+
 export const extend = <K extends RecordKeyType, T = any>(previous: Record<K, T>, key: K, value: T): Record<K, T> => {
 
     return {
