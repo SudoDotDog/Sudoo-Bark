@@ -5,7 +5,7 @@
  */
 
 import { asyncFilter, asyncForEach, asyncMap, asyncReduce } from './async';
-import { asyncFlatRebuild, asyncMax, asyncMin, asyncRebuild } from './complex';
+import { asyncFlatRebuild, asyncMax, asyncMin, asyncPick, asyncPickWithout, asyncRebuild } from './complex';
 
 const exportee = {
     asyncFilter,
@@ -14,12 +14,14 @@ const exportee = {
     asyncMap,
     asyncMax,
     asyncMin,
+    asyncPick,
+    asyncPickWithout,
     asyncRebuild,
     asyncReduce,
 };
 
 export { exportee as _Mutate };
 export { asyncFilter, asyncForEach, asyncMap, asyncReduce };
-export { asyncFlatRebuild, asyncMax, asyncMin, asyncRebuild };
+export { asyncFlatRebuild, asyncMax, asyncMin, asyncPick, asyncPickWithout, asyncRebuild };
 
 export default exportee;
