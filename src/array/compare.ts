@@ -4,7 +4,32 @@
  * @description Compare
  */
 
-export const same = <T>(first: T[], second: T[], compareFunction?: (first: T, second: T) => boolean): boolean => {
+export const difference = <T = any>(before: T[], after: T[], compareFunction?: (first: T, second: T) => boolean): [T[], T[]] => {
+
+    if ((!Array.isArray(before)) || (!Array.isArray(after))) {
+        return [[], []];
+    }
+
+    const added: T[] = [];
+    for (const element of after) {
+
+        if (!before.includes(element)) {
+            added.push(element);
+        }
+    }
+
+    const removed: T[] = [];
+    for (const element of before) {
+
+        if (!after.includes(element)) {
+            removed.push(element);
+        }
+    }
+
+    return [added, removed];
+};
+
+export const same = <T = any>(first: T[], second: T[], compareFunction?: (first: T, second: T) => boolean): boolean => {
 
     if ((!Array.isArray(first)) || (!Array.isArray(second))) {
         return false;
