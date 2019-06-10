@@ -8,6 +8,7 @@
 import { expect } from 'chai';
 import * as Chance from 'chance';
 import { difference, same } from '../../src/array';
+import { asyncDifference } from '../../src/array/compare';
 
 describe('Given Array compare function', (): void => {
 
@@ -53,7 +54,7 @@ describe('Given Array compare function', (): void => {
         });
     });
 
-    describe.only('Given a [difference] function', () => {
+    describe('Given a [difference] function', () => {
 
         const chance: Chance.Chance = new Chance('array-compare-difference');
 
@@ -104,6 +105,62 @@ describe('Given Array compare function', (): void => {
             const mutated: any[] = [{ a: 0 }, arr[2], arr[4]];
 
             const result: [any[], any[]] = difference(original, mutated, (first: any, second: any) => first.a === second.a);
+
+            expect(result).to.be.deep.equal([[arr[2], arr[4]], [arr[1], arr[3]]]);
+        });
+    });
+
+    describe('Given a [asyncDifference] function', () => {
+
+        const chance: Chance.Chance = new Chance('array-compare-asyncDifference');
+
+        it('should be able to handle error pass in', async (): Promise<void> => {
+
+            const result: [string[], string[]] = await asyncDifference(null as any, []);
+
+            expect(result).to.be.deep.equal([[], []]);
+        });
+
+        it('should be able to return empty', async (): Promise<void> => {
+
+            const arr: string[] = chance.unique(chance.string, 5);
+
+            const result: [string[], string[]] = await asyncDifference(arr, arr);
+
+            expect(result).to.be.deep.equal([[], []]);
+        });
+
+        it('should be able to return difference', async (): Promise<void> => {
+
+            const added: string = chance.string();
+            const original: string[] = chance.unique(chance.string, 5);
+            const mutated: string[] = [...original, added];
+
+            const result: [string[], string[]] = await asyncDifference(original, mutated);
+
+            expect(result).to.be.deep.equal([[added], []]);
+        });
+
+        it('should be able to handle complex array', async (): Promise<void> => {
+
+            const arr: string[] = chance.unique(chance.string, 5);
+
+            const original: string[] = [arr[0], arr[1], arr[3]];
+            const mutated: string[] = [arr[0], arr[2], arr[4]];
+
+            const result: [string[], string[]] = await asyncDifference(original, mutated);
+
+            expect(result).to.be.deep.equal([[arr[2], arr[4]], [arr[1], arr[3]]]);
+        });
+
+        it('should be able to handle complex array compare function', async (): Promise<void> => {
+
+            const arr: any[] = [{ a: 1 }, { a: 2 }, { a: 3 }, { a: 4 }, { a: 5 }];
+
+            const original: any[] = [{ a: 0 }, arr[1], arr[3]];
+            const mutated: any[] = [{ a: 0 }, arr[2], arr[4]];
+
+            const result: [any[], any[]] = await asyncDifference(original, mutated, async (first: any, second: any): Promise<boolean> => first.a === second.a);
 
             expect(result).to.be.deep.equal([[arr[2], arr[4]], [arr[1], arr[3]]]);
         });

@@ -8,7 +8,7 @@ export const difference = <T = any>(
     before: T[],
     after: T[],
     compareFunction: (first: T, second: T) => boolean =
-        (first: T, second: T) => first === second,
+        (first: T, second: T): boolean => first === second,
 ): [T[], T[]] => {
 
     if ((!Array.isArray(before)) || (!Array.isArray(after))) {
@@ -29,6 +29,40 @@ export const difference = <T = any>(
     outer: for (const element of before) {
         for (const each of after) {
             if (compareFunction(element, each)) {
+                continue outer;
+            }
+        }
+        removed.push(element);
+    }
+
+    return [added, removed];
+};
+
+export const asyncDifference = async <T = any>(
+    before: T[],
+    after: T[],
+    compareFunction: (first: T, second: T) => Promise<boolean> =
+        async (first: T, second: T): Promise<boolean> => first === second,
+): Promise<[T[], T[]]> => {
+
+    if ((!Array.isArray(before)) || (!Array.isArray(after))) {
+        return [[], []];
+    }
+
+    const added: T[] = [];
+    outer: for (const element of after) {
+        for (const each of before) {
+            if (await compareFunction(element, each)) {
+                continue outer;
+            }
+        }
+        added.push(element);
+    }
+
+    const removed: T[] = [];
+    outer: for (const element of before) {
+        for (const each of after) {
+            if (await compareFunction(element, each)) {
                 continue outer;
             }
         }
