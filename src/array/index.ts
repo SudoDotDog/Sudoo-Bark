@@ -5,9 +5,10 @@
  */
 
 import { car, cdr, clr, sample } from './common';
-import { difference, same } from './compare';
+import { asyncDifference, difference, same } from './compare';
 
 const exportee: Record<string, any> = {
+    asyncDifference,
     car,
     cdr,
     clr,
@@ -18,6 +19,6 @@ const exportee: Record<string, any> = {
 
 export { exportee as _Array };
 export { car, cdr, clr, sample };
-export { difference, same };
+export { asyncDifference, difference, same };
 
 export default exportee;
