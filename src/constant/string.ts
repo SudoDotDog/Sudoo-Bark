@@ -6,16 +6,16 @@
 
 export class StringBuffer {
 
-    public static create(init?: string): StringBuffer {
+    public static create(init: string = ''): StringBuffer {
 
         return new StringBuffer(init);
     }
 
     private _value: string;
 
-    private constructor(init?: string) {
+    private constructor(init: string) {
 
-        this._value = init || '';
+        this._value = init;
     }
 
     public get value(): string {

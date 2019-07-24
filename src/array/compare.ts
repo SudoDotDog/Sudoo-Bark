@@ -7,8 +7,7 @@
 export const difference = <T = any>(
     before: T[],
     after: T[],
-    compareFunction: (first: T, second: T) => boolean =
-        (first: T, second: T): boolean => first === second,
+    compareFunction: (first: T, second: T) => boolean = (first: T, second: T): boolean => first === second,
 ): [T[], T[]] => {
 
     if ((!Array.isArray(before)) || (!Array.isArray(after))) {
@@ -41,8 +40,7 @@ export const difference = <T = any>(
 export const asyncDifference = async <T = any>(
     before: T[],
     after: T[],
-    compareFunction: (first: T, second: T) => Promise<boolean> =
-        async (first: T, second: T): Promise<boolean> => first === second,
+    compareFunction: (first: T, second: T) => Promise<boolean> = async (first: T, second: T): Promise<boolean> => first === second,
 ): Promise<[T[], T[]]> => {
 
     if ((!Array.isArray(before)) || (!Array.isArray(after))) {
@@ -72,7 +70,11 @@ export const asyncDifference = async <T = any>(
     return [added, removed];
 };
 
-export const same = <T = any>(first: T[], second: T[], compareFunction?: (first: T, second: T) => boolean): boolean => {
+export const same = <T = any>(
+    first: T[],
+    second: T[],
+    compareFunction: (first: T, second: T) => boolean = (a: T, b: T): boolean => a === b,
+): boolean => {
 
     if ((!Array.isArray(first)) || (!Array.isArray(second))) {
         return false;

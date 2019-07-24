@@ -6,16 +6,16 @@
 
 export class NumericBuffer {
 
-    public static create(init?: number): NumericBuffer {
+    public static create(init: number = 0): NumericBuffer {
 
         return new NumericBuffer(init);
     }
 
     private _value: number;
 
-    private constructor(init?: number) {
+    private constructor(init: number) {
 
-        this._value = init || 0;
+        this._value = init;
     }
 
     public get value(): number {
