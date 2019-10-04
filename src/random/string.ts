@@ -22,7 +22,9 @@ export const random = (length: number = DefaultUniqueLength, prefix?: string): s
         return sets + getSlice().substring(0, tailLength);
     }
 
-    if (prefix) return prefix + sets;
+    if (prefix) {
+        return prefix + sets;
+    }
     return sets;
 };
 
@@ -41,7 +43,9 @@ export const unique = (date: Date = new Date(), length: number = DefaultUniqueLe
         return sets + getSlice().substring(0, tailLength);
     }
 
-    if (prefix) return prefix + sets;
+    if (prefix) {
+        return prefix + sets;
+    }
     return sets;
 };
 

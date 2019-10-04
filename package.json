@@ -13,7 +13,7 @@
   },
   "homepage": "https://github.com/SudoDotDog/Sudoo-Bark#readme",
   "devDependencies": {
-    "@sudoo/triforce": "^1.8.2"
+    "@sudoo/triforce": "^1.8.3"
   },
   "nyc": {
     "extension": [
