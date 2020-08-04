@@ -19,7 +19,7 @@ export const stringifyDateLocal = (date: Date, format: string): string => {
         .replace(/ss/g, fixDigitWithZero(date.getSeconds().toString(), 2))
         .replace(/lll/g, fixDigitWithZero(date.getMilliseconds().toString(), 3));
 
-    if (result.match(/area/)) {
+    if (/area/.exec(result)) {
 
         const area: number = date.getTimezoneOffset();
         return result.replace(/area/g, `UTC${area >= 0 ? `+${area}` : `-${area}`}`);

@@ -1,6 +1,7 @@
 {
     "cSpell.words": [
         "WMXPY",
+        "camelcase",
         "codecov",
         "connor",
         "exportee",
@@ -10,7 +11,7 @@
         "triforce",
         "tshook"
     ],
-    "tslint.configFile": "typescript/tslint.json",
-    "javascript.preferences.importModuleSpecifier": "auto",
-    "typescript.preferences.importModuleSpecifier": "auto"
+    "eslint.options": {
+        "configFile": "./typescript/.eslintrc.json"
+    }
 }

@@ -40,6 +40,7 @@ export const difference = <T = any>(
 export const asyncDifference = async <T = any>(
     before: T[],
     after: T[],
+    // eslint-disable-next-line @typescript-eslint/require-await
     compareFunction: (first: T, second: T) => Promise<boolean> = async (first: T, second: T): Promise<boolean> => first === second,
 ): Promise<[T[], T[]]> => {
 
