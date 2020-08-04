@@ -29,10 +29,11 @@ export const lash = <K extends RecordKeyType, T = any>
                 }
             }
             return extend(previous, current, object[current]);
-        }, {} as Record<K, T>) as Record<K, T>;
+        }, {} as Record<K, T>);
     return newObject;
 };
 
+// eslint-disable-next-line camelcase
 export const lash_mutate = <K extends RecordKeyType, T = any>
     (object: Record<K, T>, key: K, value: T, newKey?: K): Record<K, T> => {
 

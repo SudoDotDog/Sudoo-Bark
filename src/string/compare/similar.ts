@@ -11,7 +11,9 @@ export const similar = (baseStr: string, targetStr: string): number => {
     const base: string = baseStr.length < targetStr.length ? baseStr.toLowerCase() : targetStr.toLowerCase();
     const target: string = baseStr.length < targetStr.length ? targetStr.toLowerCase() : baseStr.toLowerCase();
 
-    if (base.length === 0 || target.length === 0) return Infinity;
+    if (base.length === 0 || target.length === 0) {
+        return Infinity;
+    }
 
     const next: (m: number[][], i: number, j: number) => number
         = (m: number[][], i: number, j: number): number =>
@@ -33,5 +35,5 @@ export const similar = (baseStr: string, targetStr: string): number => {
     const lastRoute: number[] = clr(map) as number[];
     const lastElement: number = clr(lastRoute) as number;
 
-    return lastElement as number;
+    return lastElement;
 };

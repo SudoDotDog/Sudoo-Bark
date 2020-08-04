@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/unbound-method */
 /**
  * @author WMXPY
  * @namespace Array
@@ -26,15 +27,15 @@ describe('Given Array common function', (): void => {
 
             const arr: string[] = chance.unique(chance.string, 0);
 
-            // tslint:disable-next-line
+            // eslint-disable-next-line @typescript-eslint/no-unused-expressions
             expect(sample(arr)).to.be.undefined;
         });
 
         it('should be able to handle null or undefined', () => {
 
-            // tslint:disable-next-line
+            // eslint-disable-next-line @typescript-eslint/no-unused-expressions
             expect(sample(null as any)).to.be.undefined;
-            // tslint:disable-next-line
+            // eslint-disable-next-line @typescript-eslint/no-unused-expressions
             expect(sample(undefined as any)).to.be.undefined;
         });
     });

@@ -5,13 +5,14 @@
  */
 
 export const DefaultUniqueLength: number = 8;
+export const DigitParsing: number = 36;
 export const MaxUniqueLength: number = 255;
 
 export const random = (length: number = DefaultUniqueLength, prefix?: string): string => {
 
     const realLength: number = Math.min(length, MaxUniqueLength);
 
-    const getSlice: () => string = () => Math.random().toString(36).substring(2, DefaultUniqueLength + 2);
+    const getSlice: () => string = () => Math.random().toString(DigitParsing).substring(2, DefaultUniqueLength + 2);
 
     const setLength: number = Math.floor(realLength / DefaultUniqueLength);
     const sets: string = new Array(setLength).fill(undefined).map(getSlice).join('');
@@ -32,7 +33,7 @@ export const unique = (date: Date = new Date(), length: number = DefaultUniqueLe
 
     const realLength: number = Math.min(length, MaxUniqueLength);
 
-    const getSlice: () => string = () => date.getTime().toString(36).substring(0, DefaultUniqueLength);
+    const getSlice: () => string = () => date.getTime().toString(DigitParsing).substring(0, DefaultUniqueLength);
 
     const setLength: number = Math.floor(realLength / DefaultUniqueLength);
     const sets: string = new Array(setLength).fill(undefined).map(getSlice).join('');
