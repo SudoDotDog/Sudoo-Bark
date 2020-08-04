@@ -21,7 +21,7 @@ describe('Given Map compare function', (): void => {
                 [chance.string()]: chance.string(),
             };
 
-            // tslint:disable-next-line
+            // eslint-disable-next-line @typescript-eslint/no-unused-expressions
             expect(same(obj, undefined as any)).to.be.false;
         });
 
@@ -35,7 +35,7 @@ describe('Given Map compare function', (): void => {
                 [chance.string()]: chance.string(),
             };
 
-            // tslint:disable-next-line
+            // eslint-disable-next-line @typescript-eslint/no-unused-expressions
             expect(same(first, second)).to.be.false;
         });
 
@@ -52,7 +52,7 @@ describe('Given Map compare function', (): void => {
                 [key]: chance.string(),
             };
 
-            // tslint:disable-next-line
+            // eslint-disable-next-line @typescript-eslint/no-unused-expressions
             expect(same(first, second)).to.be.false;
         });
 
@@ -66,7 +66,7 @@ describe('Given Map compare function', (): void => {
                 ...first,
             };
 
-            // tslint:disable-next-line
+            // eslint-disable-next-line @typescript-eslint/no-unused-expressions
             expect(same(first, second)).to.be.true;
         });
     });

@@ -75,7 +75,7 @@ export const asyncMax = async <T = any>(arr: T[], func: (current: T, index: numb
 
     const length: number = arr.length;
     let currentMax: number = Number.MIN_SAFE_INTEGER;
-    let currentElement: T = arr[0] as T;
+    let currentElement: T = arr[0];
 
     for (let i = 0; i < length; i++) {
         const result: number = await func(arr[i], i, arr);
@@ -95,7 +95,7 @@ export const asyncMin = async <T = any>(arr: T[], func: (current: T, index: numb
 
     const length: number = arr.length;
     let currentMin: number = Number.MAX_SAFE_INTEGER;
-    let currentElement: T = arr[0] as T;
+    let currentElement: T = arr[0];
 
     for (let i = 0; i < length; i++) {
         const result: number = await func(arr[i], i, arr);

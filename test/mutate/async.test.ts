@@ -21,6 +21,7 @@ describe('Given [Mutate-Async] helper functions', (): void => {
 
             const from: number[] = [0, 1, 2];
 
+            // eslint-disable-next-line @typescript-eslint/require-await, @typescript-eslint/no-unused-vars
             const func = async (value: number, index: number, arr: number[]): Promise<boolean> => {
                 return value % 2 === 0;
             };
@@ -38,6 +39,7 @@ describe('Given [Mutate-Async] helper functions', (): void => {
             const num3: number = getSmallRandomNumber();
             const from: number[] = [num1, num2, num3];
 
+            // eslint-disable-next-line @typescript-eslint/require-await
             const func = async (value: number, index: number, arr: number[]): Promise<number> => {
                 return value + index + arr.length;
             };
@@ -55,6 +57,7 @@ describe('Given [Mutate-Async] helper functions', (): void => {
             const num3: number = getSmallRandomNumber();
             const from: number[] = [num1, num2, num3];
 
+            // eslint-disable-next-line @typescript-eslint/require-await
             const func = async (previous: number, value: number, index: number, arr: number[]): Promise<number> => {
                 return previous + value + index + arr.length;
             };

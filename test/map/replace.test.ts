@@ -6,6 +6,7 @@
 
 import { expect } from 'chai';
 import * as Chance from 'chance';
+// eslint-disable-next-line camelcase
 import { lash, lash_mutate } from '../../src/map/replace';
 
 describe('Given [replace] map related functions', (): void => {

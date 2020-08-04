@@ -4,7 +4,8 @@
  * @description Replace
  */
 
-import { lash, lash_mutate } from "../../dist/map/replace";
+// eslint-disable-next-line camelcase
+import { lash, lash_mutate } from "../../app/map/replace";
 
 console.time('extend');
 

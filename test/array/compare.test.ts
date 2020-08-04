@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/unbound-method */
 /**
  * @author WMXPY
  * @namespace Array
@@ -20,7 +21,7 @@ describe('Given Array compare function', (): void => {
 
             const arr: string[] = chance.unique(chance.string, 5);
 
-            // tslint:disable-next-line
+            // eslint-disable-next-line @typescript-eslint/no-unused-expressions
             expect(same(arr, undefined as any)).to.be.false;
         });
 
@@ -29,7 +30,7 @@ describe('Given Array compare function', (): void => {
             const first: string[] = chance.unique(chance.string, 5);
             const second: string[] = chance.unique(chance.string, 4);
 
-            // tslint:disable-next-line
+            // eslint-disable-next-line @typescript-eslint/no-unused-expressions
             expect(same(first, second)).to.be.false;
         });
 
@@ -40,7 +41,7 @@ describe('Given Array compare function', (): void => {
 
             second[3] = chance.string();
 
-            // tslint:disable-next-line
+            // eslint-disable-next-line @typescript-eslint/no-unused-expressions
             expect(same(first, second)).to.be.false;
         });
 
@@ -49,7 +50,7 @@ describe('Given Array compare function', (): void => {
             const first: string[] = chance.unique(chance.string, 5);
             const second: string[] = [...first];
 
-            // tslint:disable-next-line
+            // eslint-disable-next-line @typescript-eslint/no-unused-expressions
             expect(same(first, second)).to.be.true;
         });
     });
@@ -160,6 +161,7 @@ describe('Given Array compare function', (): void => {
             const original: any[] = [{ a: 0 }, arr[1], arr[3]];
             const mutated: any[] = [{ a: 0 }, arr[2], arr[4]];
 
+            // eslint-disable-next-line @typescript-eslint/require-await
             const result: [any[], any[]] = await asyncDifference(original, mutated, async (first: any, second: any): Promise<boolean> => first.a === second.a);
 
             expect(result).to.be.deep.equal([[arr[2], arr[4]], [arr[1], arr[3]]]);
