@@ -5,7 +5,7 @@
 [![npm version](https://badge.fury.io/js/%40sudoo%2Fbark.svg)](https://www.npmjs.com/package/@sudoo/bark)
 [![downloads](https://img.shields.io/npm/dm/@sudoo/bark.svg)](https://www.npmjs.com/package/@sudoo/bark)
 
-:cyclone: Don't bark same wheel again and again
+:cyclone: Don't bark the same wheel again and again
 
 ## Install
 
@@ -17,10 +17,11 @@ npm install @sudoo/bark --save
 
 ## Scoped Importation
 
-`@sudoo/bark` package is provided with scoped import feature.
+`@sudoo/bark` package is provided with the scoped import feature.
 
 ```ts
-
+import { lash } from "@sudoo/bark/map";
+last(/* Arguments */);
 ```
 
 ## Function Usage
