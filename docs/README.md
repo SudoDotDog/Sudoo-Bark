@@ -6,3 +6,23 @@
 [![downloads](https://img.shields.io/npm/dm/@sudoo/bark.svg)](https://www.npmjs.com/package/@sudoo/bark)
 
 :cyclone: Don't bark same wheel again and again
+
+## Install
+
+```sh
+yarn add @sudoo/bark
+# Or
+npm install @sudoo/bark --save
+```
+
+## Scoped Importation
+
+`@sudoo/bark` package is provided with scoped import feature.
+
+```ts
+
+```
+
+## Function Usage
+
+`@sudoo/bark` package is a collection of utility functions. No general usage example is provided here. See source codes for details.
